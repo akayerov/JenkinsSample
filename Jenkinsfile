@@ -12,9 +12,6 @@ pipeline {
             steps {
                 echo 'Stage 2 steps1'
             }
-            steps {
-                echo 'Stage 2 steps2'
-            }
         }
     }
 }
