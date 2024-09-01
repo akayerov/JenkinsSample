@@ -3,15 +3,31 @@
 pipeline {
     agent any
     stages {
-        stage('Stage 1') {
+        stage('PreStage 1') {
             steps {
                 echo 'Hello world!'
             }
         }
-        stage('Stage 2') {
+        stage('PreStage 2') {
             steps {
                 echo 'Stage 2 steps1'
             }
         }
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
     }
 }
