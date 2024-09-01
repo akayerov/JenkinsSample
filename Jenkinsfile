@@ -5,12 +5,12 @@ pipeline {
     stages {
         stage('PreStage 1') {
             steps {
-                echo 'Hello world!'
+                echo 'PreStage 1'
             }
         }
         stage('PreStage 2') {
             steps {
-                echo 'Stage 2 steps1'
+                echo 'PreStage 2'
             }
         }
         stage('Build') {
